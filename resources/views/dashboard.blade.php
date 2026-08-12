@@ -7,9 +7,6 @@
 
     <title>Dashboard - Estudiantes</title>
 
-    <!-- Cute / coquette styling -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script&display=swap" rel="stylesheet">
-
     <style>
         * {
             box-sizing: border-box;
@@ -18,42 +15,35 @@
         }
 
         body {
-            font-family: 'Poppins', Arial, sans-serif;
-            background: linear-gradient(160deg, #fff7fb 0%, #fffaf2 50%, #f7f6ff 100%);
-            color: #3b3b3b;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #333;
         }
 
         .navbar {
-            background: linear-gradient(90deg,#ffd6e8 0%, #d8c7ff 100%);
-            color: #4b2b5a;
-            padding: 18px 36px;
+            background: #b6b2fd;
+            color: white;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom-left-radius: 18px;
-            border-bottom-right-radius: 18px;
-            box-shadow: 0 8px 30px rgba(91,40,111,0.08);
         }
 
         .navbar h1 {
-            font-size: 26px;
-            font-family: 'Dancing Script', cursive;
-            letter-spacing: 0.6px;
+            font-size: 24px;
         }
 
         .navbar a {
-            color: #4b2b5a;
+            color: white;
             text-decoration: none;
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.2);
             padding: 10px 18px;
-            border-radius: 999px;
-            font-weight: 600;
-            box-shadow: 0 6px 18px rgba(75,43,90,0.08);
+            border-radius: 8px;
         }
 
         .container {
-            max-width: 980px;
-            margin: 34px auto;
+            max-width: 1100px;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
@@ -62,10 +52,8 @@
         }
 
         .welcome h2 {
-            font-size: 32px;
+            font-size: 30px;
             margin-bottom: 8px;
-            color: #5b2b6f;
-            font-family: 'Dancing Script', cursive;
         }
 
         .welcome p {
@@ -80,36 +68,34 @@
         }
 
         .card {
-            background: linear-gradient(180deg,#fff 0%, #fff6fb 100%);
-            padding: 22px;
-            border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(92,33,88,0.06);
-            border: 1px solid rgba(200,170,200,0.18);
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         .card .icon {
-            font-size: 34px;
+            font-size: 32px;
             margin-bottom: 10px;
         }
 
         .card h3 {
-            color: #7a4b7f;
-            font-size: 15px;
-            margin-bottom: 6px;
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 8px;
         }
 
         .card .number {
-            font-size: 30px;
-            font-weight: 700;
-            color: #d6336c;
+            font-size: 34px;
+            font-weight: bold;
+            color: #4f46e5;
         }
 
         .students {
-            background: linear-gradient(180deg,#ffffff 0%, #fffaf6 100%);
-            padding: 22px;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(87,30,84,0.04);
-            border: 1px solid rgba(220,190,220,0.16);
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         .students h2 {
@@ -122,9 +108,9 @@
         }
 
         th, td {
-            padding: 12px 14px;
+            padding: 14px;
             text-align: left;
-            border-bottom: 1px solid #f2e9f2;
+            border-bottom: 1px solid #eee;
         }
 
         th {
@@ -135,26 +121,17 @@
         .button {
             display: inline-block;
             margin-top: 20px;
-            background: linear-gradient(90deg,#ff9ac9 0%, #bda0ff 100%);
+            background: #4f46e5;
             color: white;
             text-decoration: none;
             padding: 12px 20px;
-            border-radius: 999px;
-            font-weight: 600;
-            box-shadow: 0 10px 30px rgba(189,160,255,0.16);
+            border-radius: 8px;
         }
-
-        .button:hover { transform: translateY(-3px); }
 
         .empty {
-            color: #8a6b89;
+            color: #777;
             padding: 20px 0;
-            font-style: italic;
         }
-
-        /* small touches */
-        .card .icon.heart { filter: drop-shadow(0 6px 14px rgba(214,51,108,0.12)); }
-        table tr:hover td { background: rgba(255,150,200,0.04); }
     </style>
 </head>
 
