@@ -4,6 +4,11 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h2>📋 Estudiantes</h2>
     <a href="{{ route('estudiantes.create') }}" class="btn btn-primary">➕ Nuevo</a>
+<a href="{{ route('dashboard') }}" class="btn btn-primary">
+    📊 Ir al panel de estudiantes
+</a>
+
+
 </div>
 <table class="table table-striped align-middle">
     <thead class="table-dark">
