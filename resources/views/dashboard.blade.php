@@ -15,18 +15,44 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fff5f9 0%, #ffe6f0 100%);
             color: #333;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            font-size: 80px;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::before {
+            top: 10%;
+            left: 5%;
+            content: '🎀';
+        }
+
+        body::after {
+            bottom: 10%;
+            right: 5%;
+            content: '🎀';
         }
 
         .navbar {
-            background: #b6b2fd;
+            background: linear-gradient(90deg, #e093ba 0%, #ff85c0 100%);
             color: white;
             padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+            border-bottom: 3px solid #dd70aa;
         }
 
         .navbar h1 {

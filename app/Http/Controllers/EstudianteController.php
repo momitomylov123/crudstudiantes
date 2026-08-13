@@ -15,29 +15,41 @@ class EstudianteController extends Controller
     }
 
     public function create()
-    {
-        return view('estudiantes.create');
-    }
+{
+    $cursos = \App\Models\Curso::all();
+    $preceptores = \App\Models\Preceptor::all();
 
+    return view('estudiantes.create', compact('cursos', 'preceptores'));
+}
+    
     public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'nombre'           => 'required|string|max:255',
-            'apellido'         => 'required|string|max:255',
-            'dni'              => 'required|string|unique:estudiantes,dni',
-            'fecha_nacimiento' => 'required|date',
-            'foto_perfil'      => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+{
+    $validated = $request->validate([
+        'nombre'           => 'required|string|max:255',
+        'apellido'         => 'required|string|max:255',
+        'dni'              => 'required|string|unique:estudiantes,dni',
+        'fecha_nacimiento' => 'required|date',
+        'foto_perfil'      => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'curso_id'         => 'nullable|exists:cursos,id',
+        'preceptor_id'     => 'nullable|exists:preceptors,id',
+    ]);
 
-        if ($request->hasFile('foto_perfil')) {
-            $file = $request->file('foto_perfil');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $validated['foto_perfil'] = $file->storeAs('fotos_perfil', $filename, 'public');
-        }
-
-        Estudiante::create($validated);
-        return redirect()->route('estudiantes.index')->with('success', 'Estudiante creado correctamente.');
+    if ($request->hasFile('foto_perfil')) {
+        $file = $request->file('foto_perfil');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $validated['foto_perfil'] = $file->storeAs(
+            'fotos_perfil',
+            $filename,
+            'public'
+        );
     }
+
+    Estudiante::create($validated);
+
+    return redirect()
+        ->route('estudiantes.index')
+        ->with('success', 'Estudiante creado correctamente.');
+}
 
     public function show(Estudiante $estudiante)
 {
@@ -45,9 +57,16 @@ class EstudianteController extends Controller
 }
 
     public function edit(Estudiante $estudiante)
-    {
-        return view('estudiantes.edit', compact('estudiante'));
-    }
+{
+    $cursos = \App\Models\Curso::all();
+    $preceptores = \App\Models\Preceptor::all();
+
+    return view('estudiantes.edit', compact(
+        'estudiante',
+        'cursos',
+        'preceptores'
+    ));
+}
 
     public function update(Request $request, Estudiante $estudiante)
     {
@@ -57,6 +76,8 @@ class EstudianteController extends Controller
             'dni'              => 'required|string|unique:estudiantes,dni,' . $estudiante->id,
             'fecha_nacimiento' => 'required|date',
             'foto_perfil'      => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'curso_id'         => 'nullable|exists:cursos,id',
+            'preceptor_id'     => 'nullable|exists:preceptors,id',
         ]);
 
         if ($request->hasFile('foto_perfil')) {

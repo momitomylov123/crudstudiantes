@@ -14,6 +14,35 @@
         </div>
         <button type="submit" class="btn btn-warning">🔄 Actualizar</button>
         <a href="{{ route('estudiantes.index') }}" class="btn btn-secondary">Cancelar</a>
+        <div class="mb-3">
+    <label class="form-label">Curso</label>
+
+    <select name="curso_id" class="form-control">
+        <option value="">Seleccionar Curso</option>
+
+        @foreach($cursos as $curso)
+            <option value="{{ $curso->id }}"
+                {{ old('curso_id', $estudiante->curso_id) == $curso->id ? 'selected' : '' }}>
+                {{ $curso->nombre }}
+            </option>
+        @endforeach
+    </select>
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Preceptor</label>
+
+    <select name="preceptor_id" class="form-control">
+        <option value="">Seleccionar Preceptor</option>
+
+        @foreach($preceptores as $preceptor)
+            <option value="{{ $preceptor->id }}"
+                {{ old('preceptor_id', $estudiante->preceptor_id) == $preceptor->id ? 'selected' : '' }}>
+                {{ $preceptor->nombre }} {{ $preceptor->apellido }}
+            </option>
+        @endforeach
+    </select>
+</div>
     </form>
 </div>
 @endsection

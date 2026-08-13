@@ -12,9 +12,21 @@ class Estudiante extends Model
         'dni',
         'fecha_nacimiento',
         'foto_perfil',
+        'curso_id',
+        'preceptor_id',
     ];
 
     protected $casts = [
         'fecha_nacimiento' => 'date',
     ];
+
+    public function curso()
+    {
+        return $this->belongsTo(Curso::class);
+    }
+
+    public function preceptor()
+    {
+        return $this->belongsTo(Preceptor::class);
+    }
 }
