@@ -1,11 +1,10 @@
+@extends('layouts.app')
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@section('title', 'Panel de estudiantes')
 
-    <title>Dashboard - Estudiantes</title>
+@section('content')
+
+    <title>Estudiantes</title>
 
     <style>
         * {
@@ -159,17 +158,6 @@
             padding: 20px 0;
         }
     </style>
-</head>
-
-<body>
-
-    <nav class="navbar">
-        <h1>📚 Dashboard</h1>
-
-        <a href="{{ route('estudiantes.index') }}">
-            Ver estudiantes
-        </a>
-    </nav>
 
     <main class="container">
 
@@ -264,14 +252,8 @@
                 </p>
 
             @endif
-
-            <a href="{{ route('estudiantes.index') }}" class="button">
-                Ver todos los estudiantes →
-            </a>
-
         </section>
 
     </main>
 
-</body>
-</html>
+@endsection
